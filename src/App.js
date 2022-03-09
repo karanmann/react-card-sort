@@ -1,7 +1,9 @@
+import { MainView } from "./views/MainView";
+
 export const App = () => {
     return ( 
         <div className = "App">
-            <h1> React App </h1> 
+            <MainView />
         </div>
     );
 }
