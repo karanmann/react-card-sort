@@ -6,11 +6,14 @@ font-family: 'Work Sans', sans-serif; */
 
 :root {
     --background-color: #ebe9e4;
+    --background-card-one: #A7B8A8;
+    --background-card-two: #E1D3C7;
+    --background-card-three: #E8CDAD;
 }
 
 body {
     margin: 0;
-    padding: 0 30%;
+    padding: 0 20%;
     box-sizing: border-box;
     background-color: var(--background-color);
 }
@@ -37,12 +40,22 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: baseline;
+    align-items: center;
 }
+
 .phone-icon {
     padding-left: 10px;
+    
+}
+
+.mail-icon,
+.phone-icon {
+    height: 22px;
+    width: 22px;
 }
 
 
+/* CARD VIEW */
 
 .cards-container {
     display: flex;
@@ -55,6 +68,8 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
 
 .card-view-card {
@@ -69,12 +84,77 @@ body {
     overflow: hidden;
     border-radius: 20px;
     background-color: #fff;
+    box-shadow: -1px 5px 13px -3px rgba(0,0,0,0.2);
+    position: relative;
+    z-index: 10;
+}
 
+.color-container {
+    background-color: #fff;
+    height:50%;
+    position: absolute;
+    z-index: 11;
 }
 
 .card-view-profile {
     border-radius: 50%;
-    height: 128px;
-    width: 128px;
+    height: 100px;
+    width: 100px;
     box-shadow: -1px 5px 13px -3px rgba(0,0,0,0.82);
 }
+
+/* LIST VIEW */
+
+.list-view-card {
+    width: 749px;
+    height: 100px;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 22px;
+    margin: 20px 0;
+    border-radius: 20px;
+    box-shadow: -1px 5px 13px -3px rgba(0,0,0,0.2);
+}
+
+.list-view-card-userinfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:fit-content;
+    align-items: center;
+}
+
+.list-name-info {
+    padding-left: 10px;
+}
+
+.list-view-profile {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    box-shadow: -1px 5px 13px -3px rgba(0,0,0,0.82);
+}
+
+
+/* COMMON STYLING FOR BOTH VIEWS */
+
+.card-view-card:nth-child(1n),
+.list-view-card:nth-child(1n){
+    background-color: var(--background-card-one);
+}
+
+.card-view-card:nth-child(2n),
+.list-view-card:nth-child(2n) {
+    background-color: var(--background-card-two)
+}
+
+.card-view-card:nth-child(3n),
+.list-view-card:nth-child(3n) {
+    background-color: var(--background-card-three)
+}
+
+
+/* RESPONSIVENESS WITH MEDIA QUERIE */
+

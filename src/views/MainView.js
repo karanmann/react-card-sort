@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react"
 import {ListView} from './ListView'
 import {CardView} from './CardView'
-
-
-// const backgroundArray = ['#A7B8A8', '#E1D3C7', '#E8CDAD']
-
-// const randomColor = () => {
-
-
-// }
+import mail from '../assets/icons/mail.svg'
+import phone from '../assets/icons/phone.svg'
 
 export const MainView = () => {
   const [fetchedData, setFetchedData] = useState();
@@ -35,8 +29,8 @@ export const MainView = () => {
         <button>Toggle View!</button>
       </div>
       <div className='cards-container'>
-        <CardView fetchedData={fetchedData}/>
-        <ListView fetchedData={fetchedData}/>
+        <ListView fetchedData={fetchedData}mail={mail} phone={phone}/>
+        <CardView fetchedData={fetchedData} mail={mail} phone={phone}/>
       </div>
     </div>
   );

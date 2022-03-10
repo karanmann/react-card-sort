@@ -1,25 +1,26 @@
 import React from 'react'
-import mail from '../assets/icons/mail.svg'
-import phone from '../assets/icons/phone.svg'
 
-export const CardView = ({fetchedData}) => {
+export const CardView = ({fetchedData, mail, phone}) => {
   return (
     <div className="card-view-container">
-        {fetchedData.results.map((usersData) => {
+        {fetchedData.results.map((usersData, index) => {
           return (
-            <div className="card-view-card">
+            <div key={index} className="card-view-card">
+              <div className="color-container"></div>
               <p>
                 <span className='karla'>{usersData.name.first}</span>{" "}
                 <span className='karla'>{usersData.name.last}</span>
               </p>
               <img className="card-view-profile" src={usersData.picture.large} alt="" />
               <p className='lato'>{usersData.location.city}</p>
-              {/* <p>Cell:{usersData.cell}</p>
-              <p>Email:{usersData.email}</p> */}
-              <div className='icons-container'>
-                <img src={mail} alt="mail icon" />
+              <div className="icons-container">
+              <a href={"mailto:" + usersData.email}>
+                <img className="mail-icon" src={mail} alt="mail icon" />
+              </a>
+              <a href={"tel:" + usersData.cell}>
                 <img className="phone-icon" src={phone} alt="phone icon" />
-              </div>
+              </a>
+            </div>
             </div>
           );
         })}
