@@ -10,7 +10,71 @@ font-family: 'Work Sans', sans-serif; */
 
 body {
     margin: 0;
-    padding: 0;
+    padding: 0 30%;
     box-sizing: border-box;
     background-color: var(--background-color);
+}
+
+/* GLOBAL */
+
+
+.lato {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px
+}
+
+.karla {
+    font-family: 'Karla', sans-serif;
+    font-size: 18px;
+}
+
+.work-sans {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 48px;
+}
+
+.icons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+}
+.phone-icon {
+    padding-left: 10px;
+}
+
+
+
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.card-view-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-view-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px;
+    margin: 10px;
+    width: 210px;
+    height: 342px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #fff;
+
+}
+
+.card-view-profile {
+    border-radius: 50%;
+    height: 128px;
+    width: 128px;
+    box-shadow: -1px 5px 13px -3px rgba(0,0,0,0.82);
 }
