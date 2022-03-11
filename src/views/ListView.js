@@ -23,10 +23,11 @@ export const ListView = () => {
       });
   }, []);
 
-  if (!fetchComplete) return <h1>Loading...</h1>;
+  if (!fetchComplete) return <div className='loader-container'><div className='loader'></div></div>
 
   return (
     <>
+      <h1 className="work-sans">Meet the Team</h1>
       <div className="search-toggle-bar">
         <div className="search-left-container">
           <img className="search-sortingicon" src={sortingIcon} alt="" />
@@ -36,9 +37,6 @@ export const ListView = () => {
         <div>
           <Link to="/cardview">
             <img className="search-cardviewicon" src={cardviewIcon} alt="" />
-          </Link>
-          <Link to="/listview">
-            <img className="search-listviewicon" src={listviewIcon} alt="" />
           </Link>
         </div>
       </div>
