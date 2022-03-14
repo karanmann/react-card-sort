@@ -5,7 +5,7 @@ import "./styles/index.css"
 
 import { App } from "./App"
 import { ListView } from "./views/ListView"
-import { CardView } from "./views/CardView"
+import { GridView } from "./views/GridView"
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,7 +13,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="listview" element={<ListView/>} />
-        <Route path="cardview" element={<CardView />} />
+        <Route path="gridview" element={<GridView />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

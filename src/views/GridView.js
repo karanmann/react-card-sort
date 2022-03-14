@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import ListCard from "../components/ListCard"
+import GridCard from "../components/GridCard"
 
 import searchIcon from "../assets/icons/searchicon.svg"
 import sortingIcon from "../assets/icons/sortingicon.svg"
-import cardviewIcon from "../assets/icons/cardview.svg"
+import listviewIcon from "../assets/icons/listview.svg"
 
 
-export const ListView = () => {
+export const GridView = () => {
   const [fetchedData, setFetchedData] = useState()
   const [fetchComplete, setFetchComplete] = useState(false)
   const [searchTerm, setSearchTerm] = useState("")
@@ -36,16 +36,16 @@ export const ListView = () => {
 
   const filteredFetchedData = fetchedData.results
     .sort(toggle ? accendingOrder : decendingOrder)
-    .filter( val => {
+    .filter(val => {
       if (searchTerm === "") {
-        return val
+        return val;
       } else if (
         val.name.first.toLowerCase().includes(searchTerm.toLowerCase()) ||
         val.name.last.toLowerCase().includes(searchTerm.toLowerCase())
       ) {
         return val
       }
-    });
+    })
 
   return (
     <>
@@ -64,14 +64,14 @@ export const ListView = () => {
           />
         </div>
         <div>
-          <Link to="/cardview">
-            <img className="search-cardviewicon" src={cardviewIcon} alt="" />
+          <Link to="/listview">
+            <img className="search-listviewicon" src={listviewIcon} alt="" />
           </Link>
         </div>
       </div>
       <div>
-        <div className="list-view-container">
-          {filteredFetchedData.map((usersData, index) => <ListCard key={index} usersData={usersData} />)}
+        <div className="card-view-container">
+          {filteredFetchedData.map((usersData, index) => <GridCard key={index} usersData={usersData} /> )}
         </div>
       </div>
     </>

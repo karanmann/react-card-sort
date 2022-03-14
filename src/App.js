@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { MainView } from "./views/MainView"
 import { ListView } from "./views/ListView"
-import { CardView } from "./views/CardView"
+import { GridView } from "./views/GridView"
 
 export const App = () => {
     return ( 
@@ -9,7 +9,7 @@ export const App = () => {
             <Routes>
                 <Route path="*" element={<MainView />} />
                 <Route path="listview" element={<ListView />} />
-                <Route path="cardview" element={<CardView />} />
+                <Route path="gridview" element={<GridView />} />
             </Routes>
         </div>
     );

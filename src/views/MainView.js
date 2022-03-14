@@ -1,9 +1,9 @@
-import { CardView } from "./CardView";
+import { GridView } from "./GridView";
 
 export const MainView = () => {
   return (
     <div className="cards-container">
-      <CardView />
+      <GridView />
     </div>
   );
 };
