@@ -7,7 +7,7 @@ export const App = () => {
     return ( 
         <div className = "App">
             <Routes>
-                <Route path="/" element={<MainView />} />
+                <Route path="*" element={<MainView />} />
                 <Route path="listview" element={<ListView />} />
                 <Route path="cardview" element={<CardView />} />
             </Routes>

@@ -116,9 +116,6 @@ body {
   border-bottom: 3px solid black;
 }
 
-
-
-
 /* CARD VIEW */
 
 .cards-container {
@@ -166,7 +163,6 @@ body {
   width: 100px;
   box-shadow: -1px 5px 13px -3px rgba(0, 0, 0, 0.82);
 }
-
 
 /* LIST VIEW */
 
