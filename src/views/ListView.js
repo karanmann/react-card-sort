@@ -45,6 +45,7 @@ export const ListView = () => {
       ) {
         return val;
       }
+      return console.log("There was an error!")
     });
 
   return (
@@ -54,7 +55,7 @@ export const ListView = () => {
         <div className="navbar flex_center_row">
           <div className="flex_center_row">
             <button className="sorting_icon" onClick={() => setToggle(!toggle)}>
-              <img src={sortingIcon} alt="" />
+              <img src={sortingIcon} alt="sorting icon" />
             </button>
             <div className="search_container">
               <img className="search_icon" src={searchIcon} alt="search" />
@@ -62,13 +63,14 @@ export const ListView = () => {
                 className="search_input"
                 type="text"
                 name="Search"
+                aria-label="Search"
                 onChange={(event) => setSearchTerm(event.target.value)}
               />
             </div>
           </div>
           <div className="toggle_view_icon">
             <Link to="/gridview">
-              <img src={gridviewIcon} alt="" />
+              <img src={gridviewIcon} alt="grid view" />
             </Link>
           </div>
         </div>

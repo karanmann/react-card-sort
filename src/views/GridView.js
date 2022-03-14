@@ -45,6 +45,7 @@ export const GridView = () => {
       ) {
         return val;
       }
+      return console.log("There was an error!")
     });
 
   return (
@@ -62,13 +63,14 @@ export const GridView = () => {
                 className="search_input"
                 type="text"
                 name="Search"
+                aria-label="Search"
                 onChange={(event) => setSearchTerm(event.target.value)}
               />
             </div>
           </div>
           <div className="toggle_view_icon">
             <Link to="/listview">
-              <img src={listviewIcon} alt="" />
+              <img src={listviewIcon} alt="list view" />
             </Link>
           </div>
         </div>
