@@ -1,15 +1,20 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import { MainView } from "./views/MainView";
-import { ListView } from "./views/ListView";
-import { GridView } from "./views/GridView";
 
-export const App = () => {
+const MainView = lazy(() => import("./views/MainView.js"));
+const ListView = lazy(() => import("./views/GridView.js"));
+const GridView = lazy(() => import("./views/ListView.js"));
+
+const App = () => {
   return (
-    <Routes>
-      <Route path="*" element={<MainView />} />
-      <Route path="listview" element={<ListView />} />
-      <Route path="gridview" element={<GridView />} />
-    </Routes>
+    <Suspense fallback={<p>Loading...</p>}>
+      <Routes>
+        <Route path="*" element={<MainView />} />
+        <Route path="listview" element={<ListView />} />
+        <Route path="gridview" element={<GridView />} />
+      </Routes>
+    </Suspense>
   );
 };
+
+export default App;

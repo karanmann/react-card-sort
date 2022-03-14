@@ -9,7 +9,7 @@ import gridviewIcon from "../assets/icons/cardview.svg";
 const resultsToFetch = 50;
 const URL = `https://randomuser.me/api/?results=${resultsToFetch}`;
 
-export const ListView = () => {
+const ListView = () => {
   const [fetchedData, setFetchedData] = useState();
   const [fetchComplete, setFetchComplete] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -83,3 +83,5 @@ export const ListView = () => {
     </>
   );
 };
+
+export default ListView

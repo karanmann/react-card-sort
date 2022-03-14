@@ -1,4 +1,6 @@
-import { GridView } from "./GridView";
+import GridView from "./GridView";
 
-export const MainView = () => <GridView />
+const MainView = () => <GridView />
+
+export default MainView
 
