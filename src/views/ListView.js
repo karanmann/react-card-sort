@@ -11,7 +11,8 @@ import phone from "../assets/icons/phone.svg";
 export const ListView = () => {
   const [fetchedData, setFetchedData] = useState();
   const [fetchComplete, setFetchComplete] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState("");
+  const [toggle, setToggle] = useState(false);
 
   const URL = "https://randomuser.me/api/?results=50";
 
@@ -30,15 +31,38 @@ export const ListView = () => {
         <div className="loader"></div>
       </div>
     );
-  
+
+  const accendingOrder = (a, b) => a.name.first.localeCompare(b.name.first);
+  const decendingOrder = (a, b) => b.name.first.localeCompare(a.name.first);
+
+  const filteredFetchedData = fetchedData.results
+    .sort(toggle ? accendingOrder : decendingOrder)
+    .filter((val) => {
+      if (searchTerm === "") {
+        return val;
+      } else if (
+        val.name.first.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        val.name.last.toLowerCase().includes(searchTerm.toLowerCase())
+      ) {
+        return val;
+      }
+    });
+
   return (
     <>
       <h1 className="work-sans">Meet the Team</h1>
       <div className="search-toggle-bar">
         <div className="search-left-container">
-          <img className="search-sortingicon" src={sortingIcon} alt="" />
+          <button onClick={() => setToggle(!toggle)}>
+            <img className="search-sortingicon" src={sortingIcon} alt="" />
+          </button>
           <img className="search-searchicon" src={searchIcon} alt="" />
-          <input className="search-input" type="text" name="Search" onChange={event => setSearchTerm(event.target.value)}/>
+          <input
+            className="search-input"
+            type="text"
+            name="Search"
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
         </div>
         <div>
           <Link to="/cardview">
@@ -48,21 +72,14 @@ export const ListView = () => {
       </div>
       <LazyLoad>
         <div className="list-view-container">
-          {fetchedData.results.filter((val) =>{
-            console.log(val)
-            if (searchTerm === "") {
-              return val
-            } else if (val.name.first.toLowerCase().includes(searchTerm.toLowerCase()) || val.name.last.toLowerCase().includes(searchTerm.toLowerCase())){
-              return val
-            }
-          }).map((usersData, index) => {
+          {filteredFetchedData.map((usersData, index) => {
             return (
               <div key={index} className="list-view-card">
                 <div className="list-view-card-userinfo">
                   <img
                     className="list-view-profile"
                     src={usersData.picture.large}
-                    alt=""
+                    alt="user"
                   />
                   <div className="list-name-info">
                     <p>
@@ -82,7 +99,7 @@ export const ListView = () => {
                 </div>
               </div>
             );
-          }).sort()}
+          })}
         </div>
       </LazyLoad>
     </>
