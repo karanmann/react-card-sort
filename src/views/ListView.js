@@ -50,11 +50,11 @@ export const ListView = () => {
 
   return (
     <>
-      <h1 className="work_sans">Meet the Team</h1>
+      <h1 className="work_sans" aria-label="meet the team">Meet the Team</h1>
       <div className="cards_container">
         <div className="navbar flex_center_row">
           <div className="flex_center_row">
-            <button className="sorting_icon" onClick={() => setToggle(!toggle)}>
+            <button className="sorting_icon" onClick={() => setToggle(!toggle)} aria-label="toggle acending or decending">
               <img src={sortingIcon} alt="sorting icon" />
             </button>
             <div className="search_container">
@@ -63,12 +63,12 @@ export const ListView = () => {
                 className="search_input"
                 type="text"
                 name="Search"
-                aria-label="Search"
+                aria-label="Search Field to enter text"
                 onChange={(event) => setSearchTerm(event.target.value)}
               />
             </div>
           </div>
-          <div className="toggle_view_icon">
+          <div className="toggle_view_icon" aria-label="Toggle view to grid view">
             <Link to="/gridview">
               <img src={gridviewIcon} alt="grid view" />
             </Link>

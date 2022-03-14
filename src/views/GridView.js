@@ -50,12 +50,12 @@ export const GridView = () => {
 
   return (
     <>
-      <h1 className="work_sans">Meet the Team</h1>
+      <h1 className="work_sans" aria-label="Meet the team.">Meet the Team</h1>
       <div className="cards_container">
         <div className="navbar flex_center_row">
           <div className="flex_center_row">
-            <button className="sorting_icon" onClick={() => setToggle(!toggle)}>
-              <img src={sortingIcon} alt="sorting" />
+            <button className="sorting_icon" onClick={() => setToggle(!toggle)} aria-label="toggle acending or decending">
+              <img src={sortingIcon} alt="sorting icon" />
             </button>
             <div className="search_container">
               <img className="search_icon" src={searchIcon} alt="search" />
@@ -63,12 +63,12 @@ export const GridView = () => {
                 className="search_input"
                 type="text"
                 name="Search"
-                aria-label="Search"
+                aria-label="Search Field to enter text"
                 onChange={(event) => setSearchTerm(event.target.value)}
               />
             </div>
           </div>
-          <div className="toggle_view_icon">
+          <div className="toggle_view_icon" aria-label="Toggle view to list view">
             <Link to="/listview">
               <img src={listviewIcon} alt="list view" />
             </Link>
